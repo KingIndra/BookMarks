@@ -1,0 +1,28 @@
+services:
+  app1:
+    build: .
+    ports:
+      - 5001:5000
+    env_file:
+      - .env
+  app2:
+    build: .
+    ports:
+      - 5002:5000
+    env_file:
+      - .env
+  app3:
+    build: .
+    ports:
+      - 5003:5000
+    env_file:
+      - .env
+  server:
+    build: 
+      context: nginx
+    ports:
+      - "8080:8080"
+      - "80:80"
+  cache:
+    image: redis
+    container_name: cache_redis
